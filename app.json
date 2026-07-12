@@ -1,1 +1,48 @@
+{
+  "name": "Course Content Simplification Agent",
+  "description": "AI-powered academic content simplifier using IBM watsonx.ai and IBM Granite Foundation Models",
+  "repository": "https://github.com/your-username/course-simplifier",
+  "keywords": ["python", "flask", "ibm-watsonx", "granite", "education", "ai"],
+  "env": {
+    "WATSONX_API_KEY": {
+      "description": "Your IBM Cloud API key for watsonx.ai authentication",
+      "required": true
+    },
+    "WATSONX_PROJECT_ID": {
+      "description": "Your IBM watsonx.ai Project ID",
+      "required": true
+    },
+    "WATSONX_URL": {
+      "description": "IBM watsonx.ai endpoint URL",
+      "value": "https://us-south.ml.cloud.ibm.com",
+      "required": false
+    },
+    "GRANITE_MODEL_ID": {
+      "description": "IBM Granite model identifier",
+      "value": "ibm/granite-13b-instruct-v2",
+      "required": false
+    },
+    "SECRET_KEY": {
+      "description": "Flask secret key for session security. Generate with: python -c \"import secrets; print(secrets.token_hex(32))\"",
+      "generator": "secret"
+    },
+    "MAX_NEW_TOKENS": {
+      "description": "Maximum tokens to generate per AI response",
+      "value": "1024",
+      "required": false
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "stack": "heroku-22"
+}
 
